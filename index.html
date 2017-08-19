@@ -28,7 +28,7 @@
 
 	</style>
 </head>
-<body>
+<body id="body">
 	<div id="Header">
 		<h1>Trivia Y2K</h1>
 	</div>
@@ -45,26 +45,41 @@
 			<p>Trivia question</p>
 		</div>
 		<div id="answer-choices">
-				<button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button><br>
-				<button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button><br>
-				<button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button><br>
-				<button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button><br>
+				<button type="button" id="button1" class="btn btn-primary btn-lg btn-block">Block level button</button>
+				<button type="button" id="button2" class="btn btn-primary btn-lg btn-block">Block level button</button>
+				<button type="button" id="button3" class="btn btn-primary btn-lg btn-block">Block level button</button>
+				<button type="button" id="button4" class="btn btn-primary btn-lg btn-block">Block level button</button>
 					
 		</div>
 	</div>
 
 	<script type="text/javascript">
 
-		var question = "";
-		var answerchoices = [];
+		// starting page, "tirvia game, click to start"
+		// game starts with the first question from the question array displayed and start timer 
+		// the first array of answers from the answer array will be assigned to the 4 buttons. 
+		// there is a function for a timer, if the timer goes to 0, the question is marked wrong in the scoretracker, a timed alert pops up with the correct answer, the score tracker adds 0
+		// the timer is stopped when a button is pressed, if its the right answer, timed alert says you correct and gives a gif, if the answer is wrong it says wrong and same gif, if wins score tracker adds 1, 
+		// when array goes through all the questions, alert to their score. start gamer over./ 
+
+
+
+		
 
 		var questions = ["question1", "question2", "question3","question4","question5","question6","question7","question8","question9","question10"];
 		
 		var answers = [["1a", "1b", "1c", "1d"], ["2a", "2b", "2c", "2d"], ["3a", "3b", "3c", "3d"],["4a", "4b", "4c", "4d"], ["5a", "5b", "5c", "5d"], ["a", "b", "c", "d"], ["a", "b", "c", "d"], ["a", "b", "c", "d"], ["a", "b", "c", "d"], ["a", "b", "c", "d"]];
+
+
+	
+		var firstButton = $('#button1')
+		var secondButton = $('#button2')
+		var thirdButton = $('#button3')
+		var fourthButton = $('#button4')
 			
 
 
-		var intervalId = setInterval(count, 1000)
+		var intervalId = setInterval(count, 1000);
 		var time = 31;
 		
 		function reset() {
@@ -97,25 +112,35 @@
 		
 
 
+		function displayBoard(question, answers) {
+			$("#trivia-question").html(question);
+			$('#answers-choices').append(button);
 
+		}
 
-	
-		
-		function QuestionGenerator() {
-			for (var i = 1; i <= questions.length; i++) {
-				var question = questions[i];
-				var answerchoices = answers[i];
-	  	 		$("#trivia-question").html(question);
-	  	 		// $("#answer-choices").html(answerchoices);
-	  	 		
-	  	 	
+		function clickStart {
+			$("#body").on("click", function() {
+				startGame();
 		}}
 
+		function startGame {
+			for (var i = 0; i < questions.length; i++) {
+
+			}
+
+		}
 
 
-		QuestionGenerator();
-		console.log(question);
-		console.log(answers)
+		// $("#button1").on("click", function() {
+		// 	if (button1Value === true) {
+  //       		delayButtonAlert = setTimeout(function() {
+  //   				alert("correct!");
+  //       			}, 3000); 
+  //       	else if (button1Value ==== false) {
+  //       		delayButtonAlert = setTimeout(function() {
+  //       		alert("nope!");
+  //      			 }, 3000);
+  //     		};
 
 		
 
