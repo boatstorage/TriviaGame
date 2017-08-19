@@ -39,7 +39,7 @@
       		<div id="timer"> Time remaining: <p id="display">  </p>
 			</div>
 		</div>
-		<div> Score: <p id="score"> 10/10 </p></div>
+		<div> Score: <p id="score"> </p></div>
 		
 		<div id="trivia-question">
 			<p>Trivia question</p>
@@ -64,24 +64,15 @@
 
 
 
-		
-
-
-
-	
-		var firstButton = $('#button1')
-		var secondButton = $('#button2')
-		var thirdButton = $('#button3')
-		var fourthButton = $('#button4')
-			
+		var scoretracker = 0;
 
 
 		var intervalId = setInterval(count, 1000);
-		var time = 31;
+		var time = 16;
 		
 		function reset() {
 
-  			time = 30;
+  			time = 15;
   		
   			$("#display").html(time.toString() + " seconds");
  
@@ -119,6 +110,9 @@
 			$("#button3").html(answer[2]);
 			$("#button4").html(answer[3]);
 
+			$("#score").html(scoretracker);
+
+
 
 
 		}
@@ -132,9 +126,36 @@
 
 		})}
 
-		function playTurn(question,answer) {
+		function playTurn(question,choices,answer) {
 			
-			displayBoard(question,answer);
+			displayBoard(question,choices);
+			var firstButton = $('#button1')
+			var secondButton = $('#button2')
+			var thirdButton = $('#button3')
+			var fourthButton = $('#button4')
+	
+			 $("#button1").on("click", function() {
+			 	if (0 === answer) {
+			 		stopFunction();
+			 		scoretracker++;
+			 		intervalId;
+
+			 	}
+			 }.bind(this));$("#button2").on("click", function() {
+			 	if (1 === answer) {
+			 		scoretracker++;
+			 	}
+			 }.bind(this));$("#button3").on("click", function() {
+			 	if (2 === answer) {
+			 		scoretracker++;
+			 	}
+			 }.bind(this));$("#button4").on("click", function() {
+			 	if (3 === answer) {
+			 		scoretracker++;
+			 	}
+			 }.bind(this));
+
+
 
 		}
 
@@ -149,12 +170,12 @@
 
 
 			var i = 0;
-			playTurn(questions[i],answers[i]);
+			playTurn(questions[i],answers[i], correctAnswer[i]);
 			var gameInterval = setInterval(function() {
 				i++;
-				playTurn(questions[i],answers[i]);
+				playTurn(questions[i],answers[i],correctAnswer[i]);
 				}.bind(this)
-				, 30000 );
+				, 15000 );
 
 
 
@@ -169,16 +190,7 @@
 		}
 		startGame();
 
-		// $("#button1").on("click", function() {
-		// 	if (button1Value === true) {
-  //       		delayButtonAlert = setTimeout(function() {
-  //   				alert("correct!");
-  //       			}, 3000); 
-  //       	else if (button1Value ==== false) {
-  //       		delayButtonAlert = setTimeout(function() {
-  //       		alert("nope!");
-  //      			 }, 3000);
-  //     		};
+		
 
 		
 
