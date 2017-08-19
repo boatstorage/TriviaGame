@@ -66,9 +66,6 @@
 
 		
 
-		var questions = ["question1", "question2", "question3","question4","question5","question6","question7","question8","question9","question10"];
-		
-		var answers = [["1a", "1b", "1c", "1d"], ["2a", "2b", "2c", "2d"], ["3a", "3b", "3c", "3d"],["4a", "4b", "4c", "4d"], ["5a", "5b", "5c", "5d"], ["a", "b", "c", "d"], ["a", "b", "c", "d"], ["a", "b", "c", "d"], ["a", "b", "c", "d"], ["a", "b", "c", "d"]];
 
 
 	
@@ -86,11 +83,11 @@
 
   			time = 30;
   		
-  		$("#display").html(time.toString() + " seconds");
+  			$("#display").html(time.toString() + " seconds");
  
 		};
 
-		reset();
+		
 
 
 		function count() {
@@ -102,7 +99,7 @@
   			}
 		}
 
-		count();
+		
 
 
 		function stopFunction() {
@@ -112,24 +109,55 @@
 		
 
 
-		function displayBoard(question, answers) {
+		function displayBoard(question, answer) {
+
+			console.log(question);
+			console.log(answer);
 			$("#trivia-question").html(question);
-			$('#answers-choices').append(button);
+			$("#button1").html(answer[0]);
+			$("#button2").html(answer[1]);
+			$("#button3").html(answer[2]);
+			$("#button4").html(answer[3]);
+
+
 
 		}
 
-		function clickStart {
+		
+
+		function clickStart() {
 			$("#body").on("click", function() {
 				startGame();
-		}}
 
-		function startGame {
-			for (var i = 0; i < questions.length; i++) {
 
-			}
+		})}
 
+		function playTurn() {
+
+			
 		}
 
+		function startGame() {
+
+			var questions = ["question1", "question2", "question3","question4","question5","question6","question7","question8","question9","question10"];
+		
+			var answers = [["1a", "1b", "1c", "1d"], ["2a", "2b", "2c", "2d"], ["3a", "3b", "3c", "3d"],["4a", "4b", "4c", "4d"], ["5a", "5b", "5c", "5d"], ["a", "b", "c", "d"], ["a", "b", "c", "d"], ["a", "b", "c", "d"], ["a", "b", "c", "d"], ["a", "abe", "c", "d"]];
+
+			var correctAnswer = [0,1,2,3,2,1,0,1,2,3];
+
+			var i = 0;
+			setInterval(playTurn, 1000);
+
+			count();
+			
+			displayBoard(questions[i],answers[i]);
+
+
+
+		
+
+		}
+		startGame();
 
 		// $("#button1").on("click", function() {
 		// 	if (button1Value === true) {
