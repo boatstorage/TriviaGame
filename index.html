@@ -132,9 +132,10 @@
 
 		})}
 
-		function playTurn() {
-
+		function playTurn(question,answer) {
 			
+			displayBoard(question,answer);
+
 		}
 
 		function startGame() {
@@ -145,12 +146,21 @@
 
 			var correctAnswer = [0,1,2,3,2,1,0,1,2,3];
 
+
+
 			var i = 0;
-			setInterval(playTurn, 1000);
+			playTurn(questions[i],answers[i]);
+			var gameInterval = setInterval(function() {
+				i++;
+				playTurn(questions[i],answers[i]);
+				}.bind(this)
+				, 30000 );
+
+
 
 			count();
 			
-			displayBoard(questions[i],answers[i]);
+			
 
 
 
