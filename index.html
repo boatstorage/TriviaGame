@@ -62,7 +62,11 @@
 		// the timer is stopped when a button is pressed, if its the right answer, timed alert says you correct and gives a gif, if the answer is wrong it says wrong and same gif, if wins score tracker adds 1, 
 		// when array goes through all the questions, alert to their score. start gamer over./ 
 
+		var questions = ["question1", "question2", "question3","question4","question5","question6","question7","question8","question9","question10"];
+		
+			var answers = [["1a", "1b", "1c", "1d"], ["2a", "2b", "2c", "2d"], ["3a", "3b", "3c", "3d"],["4a", "4b", "4c", "4d"], ["5a", "5b", "5c", "5d"], ["a", "b", "c", "d"], ["a", "b", "c", "d"], ["a", "b", "c", "d"], ["a", "b", "c", "d"], ["a", "abe", "c", "d"]];
 
+			var correctAnswer = [0,1,2,3,2,1,0,1,2,3];
 
 		var scoretracker = 0;
 
@@ -105,10 +109,10 @@
 			console.log(question);
 			console.log(answer);
 			$("#trivia-question").html(question);
-			$("#button1").html(answer[0]);
-			$("#button2").html(answer[1]);
-			$("#button3").html(answer[2]);
-			$("#button4").html(answer[3]);
+			$("#button1").html(answers[0]);
+			$("#button2").html(answers[1]);
+			$("#button3").html(answers[2]);
+			$("#button4").html(answers[3]);
 
 			$("#score").html(scoretracker);
 
@@ -175,7 +179,7 @@
 				i++;
 				playTurn(questions[i],answers[i],correctAnswer[i]);
 				}.bind(this)
-				, 15000 );
+				, 2000 );
 
 
 
